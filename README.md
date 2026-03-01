@@ -1,68 +1,66 @@
-# 🖼️ Back Remover – AI Background Remover (Flask App)
+# Image Background Remover
 
-Back Remover is a free, open-source web app that removes image backgrounds using AI, just like [remove.bg](https://www.remove.bg). Built with Python, Flask, and the `rembg` library, it runs locally and can be deployed online easily.
+A simple web application built with Flask that allows users to upload images and automatically remove their backgrounds.
 
-> ⚡ Upload any image and download a transparent background version instantly!
+## Tech Stack
 
----
+*   **Language**: Python
+*   **Framework**: Flask
+*   **Key Libraries**:
+    *   `rembg`: For intelligent background removal.
+    *   `Pillow` (PIL): For image processing and manipulation.
 
-## 🚀 Features
-
-- ✅ Upload any `.jpg`, `.png`, etc.
-- ✅ Background removal using `rembg` (ONNX + U2Net)
-- ✅ Real-time preview of original and transparent images
-- ✅ Download final result in `.png` format
-- ✅ Mobile responsive UI with Tailwind CSS
-- ✅ Clean routing and templating via Flask
-
----
-
-## 📸 Demo
-
-![screenshot](https://your-screenshot-url-if-any.com)  
-🔗 Live Demo (if deployed): [https://back-remover.onrender.com](https://back-remover.onrender.com)
-
----
-
-## 📦 Installation (Local)
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/your-username/back-remover.git
-cd back-remover
-
-## Run the app
-```
-python app.py
-
-
-# Then open your browser:
-👉 http://127.0.0.1:5000
-
+## Project Structure
 
 ```
-back-remover/
-│
+.
 ├── app.py
-├── requirements.txt
-├── Procfile               # for Render deployment
 ├── static/
-│   ├── favicon.ico
-│   └── uploads/           # image upload output
-├── templates/
-│   ├── index.html
-│   ├── result.html
-│   └── about.html
-└── README.md
+│   └── uploads/
+└── templates/
+    ├── about.html
+    ├── index.html
+    └── result.html
+```
 
+## Key Features
 
+*   Upload images through a web interface.
+*   Automatic background removal from uploaded images.
+*   Display of original and processed images.
+*   Download processed images with transparent backgrounds.
 
----
+## API Endpoints
 
-Let me know if you want me to generate a matching:
-- `requirements.txt`
-- `Procfile`
-- `.gitignore`
+*   **GET `/`**
+    *   Renders the main page where users can upload images.
+*   **GET `/about`**
+    *   Renders the about page.
+*   **POST `/remove`**
+    *   Accepts an image file for background removal.
+    *   Processes the image and saves the output.
+    *   Returns a page displaying the original and background-removed images.
+*   **GET `/download/<filename>`**
+    *   Initiates a download for the specified processed image file.
 
-Or if you'd like me to prepare a `.zip` you can upload straight to GitHub.
+## Setup Instructions
+
+### Installation
+
+1.  Clone the repository (if applicable, or create the files as above).
+2.  Navigate to the project directory.
+3.  Install the required Python packages:
+
+    ```bash
+    pip install Flask rembg Pillow
+    ```
+
+### How to Run Locally
+
+1.  Ensure all dependencies are installed.
+2.  Run the Flask application:
+
+    ```bash
+    python app.py
+    ```
+3.  Open your web browser and navigate to `http://127.0.0.1:5000`.
